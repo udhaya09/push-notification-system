@@ -6,3 +6,5 @@
 - And also you have to modify the OneSignal APP_ID and REST_API_KEY in the same properties file. 
 - Once modifying these things you simply run the project as same as any Spring Boot application. 
 - You can find the list of APIs with descriptions at http://localhost:8080/swagger-ui.html#/
+
+** I don't have controller for adding search history. Instead I added it directly in collections MongoDB. 

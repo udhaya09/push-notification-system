@@ -1,4 +1,4 @@
-# Push-Notification-System RabbitMQ Imple in API Services
+# Push-Notification-System RabbitMQ Impl in API Services
 
 - It is a typical Spring boot project with Swagger UI configure. 
 - You can clone the project and import as maven project. 
@@ -6,5 +6,7 @@
 - And also you have to modify the OneSignal APP_ID and REST_API_KEY in the same properties file. 
 - Once modifying these things you simply run the project as same as any Spring Boot application. 
 - You can find the list of APIs with descriptions at http://localhost:8080/swagger-ui.html#/
+
+** Get installed RabbitMQ locally - https://www.rabbitmq.com/#getstarted
 
 ** I don't have controller for adding search history. Instead I added it directly in collections MongoDB. 

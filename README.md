@@ -1,4 +1,4 @@
-# Push-Notification-System API Services
+# Push-Notification-System RabbitMQ Imple in API Services
 
 - It is a typical Spring boot project with Swagger UI configure. 
 - You can clone the project and import as maven project. 

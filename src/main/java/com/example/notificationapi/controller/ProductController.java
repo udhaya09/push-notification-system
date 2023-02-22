@@ -2,6 +2,7 @@ package com.example.notificationapi.controller;
 
 import java.util.List;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.notificationapi.dto.ProductDto;
 import com.example.notificationapi.dto.ResponseDto;
 import com.example.notificationapi.entity.Product;
+import com.example.notificationapi.rabbitmq.RabbitMQConfiguration;
 import com.example.notificationapi.repo.ProductSearchRepository;
 import com.example.notificationapi.repo.ProductsRepository;
 import com.example.notificationapi.repo.SearchHistoryRepository;
@@ -43,6 +45,9 @@ public class ProductController {
 
 	@Autowired
 	SearchHistoryRepository searchHistoryRepository;
+	
+	@Autowired
+    private RabbitTemplate template;
 
 	@PostMapping
 	@ApiOperation(value = "To add new product", notes = "When adding new product, it will save the new product in MongoDB and do check product name, category, tags is present is available in recent search history ")
@@ -50,11 +55,15 @@ public class ProductController {
 		try {
 			Product product = productRepository
 					.save(new Product(dto.getCategory(), dto.getProductName(), dto.getPrice(), dto.getTags()));
-
-			notificationService.sendNewProductNotification(product);
-
+			
+			// notificationService.sendNewProductNotification(product);
+			
+			template.convertAndSend(RabbitMQConfiguration.EXCHANGE, RabbitMQConfiguration.ROUTING_KEY, product);
+			
 			ResponseDto response = ResponseDto.getSuccessResponse(product);
+			
 			return new ResponseEntity<>(response, HttpStatus.CREATED);
+			
 		} catch (Exception e) {
 			System.out.println("logging error: " + e);
 			ResponseDto response = ResponseDto.getFailureResponse();

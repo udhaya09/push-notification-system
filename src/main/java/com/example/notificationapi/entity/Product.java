@@ -54,4 +54,21 @@ public class Product {
 		this.price = price;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Product [productName=");
+		builder.append(productName);
+		builder.append(", category=");
+		builder.append(category);
+		builder.append(", tags=");
+		builder.append(tags);
+		builder.append(", price=");
+		builder.append(price);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
+
 }

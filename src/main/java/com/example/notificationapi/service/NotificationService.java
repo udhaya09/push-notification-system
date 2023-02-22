@@ -10,6 +10,7 @@ import java.util.function.Function;
 import java.util.function.ToLongFunction;
 import java.util.stream.Collectors;
 
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,7 @@ import com.example.notificationapi.dto.Content;
 import com.example.notificationapi.dto.SendNotificationDto;
 import com.example.notificationapi.entity.Product;
 import com.example.notificationapi.entity.SearchHistory;
+import com.example.notificationapi.rabbitmq.RabbitMQConfiguration;
 import com.example.notificationapi.repo.ProductSearchRepository;
 import com.example.notificationapi.repo.SearchHistoryRepository;
 import com.example.notificationapi.repo.UserDetailsRepository;
@@ -55,6 +57,7 @@ public class NotificationService {
 	@Value("${onesignal.app.id}")
 	private String appId;
 
+	@RabbitListener(queues = RabbitMQConfiguration.QUEUE)
 	public void sendNewProductNotification(Product product) throws JsonProcessingException {
 
 		HashSet<String> crntProd = new HashSet<>();

@@ -7,4 +7,7 @@
 - Once modifying these things you simply run the project as same as any Spring Boot application. 
 - You can find the list of APIs with descriptions at http://localhost:8080/swagger-ui.html#/
 
+![image](https://github.com/udhaya09/push-notification-system/assets/46084161/428ec7f0-2c6b-4a07-977e-4d56a8d0c693)
+
+
 ** I don't have controller for adding search history. Instead I added it directly in collections MongoDB. 

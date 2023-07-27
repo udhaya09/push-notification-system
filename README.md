@@ -7,6 +7,7 @@
 - Once modifying these things you simply run the project as same as any Spring Boot application. 
 - You can find the list of APIs with descriptions at http://localhost:8080/swagger-ui.html#/
 
+https://medium.com/@er.udhaya/push-notifications-generic-design-and-java-implementation-d27b0c9864b2
 ![image](https://github.com/udhaya09/push-notification-system/assets/46084161/428ec7f0-2c6b-4a07-977e-4d56a8d0c693)
 
 

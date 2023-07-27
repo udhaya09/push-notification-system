@@ -9,4 +9,8 @@
 
 ** Get installed RabbitMQ locally - https://www.rabbitmq.com/#getstarted
 
+https://medium.com/@er.udhaya/push-notifications-generic-design-and-java-implementation-d27b0c9864b2
+![image](https://github.com/udhaya09/push-notification-system/assets/46084161/379a2a1a-8c81-4fb5-9719-eb0d77083112)
+
+
 ** I don't have controller for adding search history. Instead I added it directly in collections MongoDB. 
